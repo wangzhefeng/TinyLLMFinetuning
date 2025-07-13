@@ -352,6 +352,11 @@
 4. [Adapter Tuning 及其变体](https://zhuanlan.zhihu.com/p/636038478)
 5. [LoRA、AdaLoRA、QLoRA](https://zhuanlan.zhihu.com/p/636215898)
 6. [MAM Adapter、UniPELT](https://zhuanlan.zhihu.com/p/636362246)
+7. [Guide to fine-tuning LLMs using PEFT and LoRa techniques](https://www.mercity.ai/blog-post/fine-tuning-llms-using-peft-and-lora)
+8. [In-depth guide to fine-tuning LLMs with LoRA and QLoRA](https://www.mercity.ai/blog-post/guide-to-fine-tuning-llms-with-lora-and-qlora)
+
+
+
 
 # LLM 微调实战
 
