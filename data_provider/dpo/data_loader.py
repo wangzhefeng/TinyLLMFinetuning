@@ -194,7 +194,7 @@ def create_dataloader(
 
 # 测试代码 main 函数
 def main():
-    from data_provider.finetune.dpo import data_config
+    from data_provider.dpo import data_config
     from utils.device import device_setting
 
     # device

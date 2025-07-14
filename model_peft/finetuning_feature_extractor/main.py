@@ -35,7 +35,7 @@ import lightning as L
 from lightning.pytorch.loggers import CSVLogger
 from lightning.pytorch.callbacks import ModelCheckpoint
 
-from data_provider.finetune.adapter.data_loader import IMDBDataset
+from data_provider.adapter.data_loader import IMDBDataset
 from utils.device import device_setting
 device = device_setting(True)
 

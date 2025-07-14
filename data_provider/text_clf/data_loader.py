@@ -103,7 +103,7 @@ def create_dataloader(data_path,
 
 # 测试代码 main 函数
 def main():
-    from data_provider.finetune.text_clf.data_config import data_dir
+    from data_provider.text_clf.data_config import data_dir
     import tiktoken
 
     # params

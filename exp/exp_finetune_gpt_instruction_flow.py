@@ -29,7 +29,7 @@ from tqdm import tqdm
 import torch
 
 # data
-from data_provider.finetune.instruction_follow import data_loader
+from data_provider.instruction_follow import data_loader
 from data_provider import instruction_format
 # tokenizer
 from layers.tokenizers.tokenization import choose_tokenizer

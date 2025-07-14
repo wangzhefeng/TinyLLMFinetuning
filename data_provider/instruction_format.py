@@ -57,7 +57,7 @@ def format_input_phi3(entry):
 
 # 测试代码 main 函数
 def main():
-    from data_provider.finetune.instruction_follow import data_config
+    from data_provider.instruction_follow import data_config
     from data_provider.load_save_data import load_json_data
     from utils.log_util import logger
 

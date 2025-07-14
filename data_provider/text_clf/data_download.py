@@ -68,7 +68,7 @@ def download_and_unzip_spam_data(data_file_path, zip_data_path, extracted_path):
 
 # 测试代码 main 函数
 def main():
-    from data_provider.finetune.text_clf.data_config import (
+    from data_provider.text_clf.data_config import (
         zip_data_path, 
         data_dir, 
         tsv_file_path

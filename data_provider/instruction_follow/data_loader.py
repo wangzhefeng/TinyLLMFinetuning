@@ -185,7 +185,7 @@ def main():
     # data loader test
     # ------------------------------
     # data load and split
-    from data_provider.finetune.instruction_follow import data_config 
+    from data_provider.instruction_follow import data_config 
     train_data, test_data, valid_data = load_split_data(data_config.data_path)
     # device
     from utils.device import device_setting

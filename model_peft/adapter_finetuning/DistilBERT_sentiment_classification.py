@@ -34,7 +34,7 @@ from lightning.pytorch.callbacks import ModelCheckpoint
 from transformers import AutoTokenizer
 from transformers import AutoModelForSequenceClassification
 
-from data_provider.finetune.adapter.data_loader import IMDBDataset
+from data_provider.adapter.data_loader import IMDBDataset
 
 # global variable
 LOGGING_LABEL = Path(__file__).name[:-3]

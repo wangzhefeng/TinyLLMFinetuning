@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************
-# * File        : run_gpt_classification_finetuning.py
+# * File        : run_gpt_clf_sft.py
 # * Author      : Zhefeng Wang
 # * Email       : zfwang7@gmail.com
 # * Date        : 2025-02-23
@@ -12,14 +12,12 @@
 # ***************************************************
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
 if ROOT not in sys.path:
     sys.path.append(ROOT)
 import argparse
-
 
 import torch
 

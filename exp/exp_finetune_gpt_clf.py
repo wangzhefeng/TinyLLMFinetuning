@@ -25,10 +25,10 @@ import warnings
 import torch
 
 # data
-from data_provider.finetune.text_clf.data_loader import create_dataloader
+from data_provider.text_clf.data_loader import create_dataloader
 # model
 from models.gpt import Model
-from model_finetuning.model_finetune_clf import finetune_model
+from layers.clf_head import finetune_model
 # other model
 from layers.tokenizers.tokenization import choose_tokenizer
 from model_load.load_gpt2_pretrained_weights import model_with_gpt2_weights, gpt2_model_configs

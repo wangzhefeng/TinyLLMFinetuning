@@ -44,7 +44,7 @@ def download_data(data_url, data_path):
 # 测试代码 main 函数
 def main(): 
     from data_provider.load_save_data import load_json_data
-    from data_provider.finetune.instruction_follow.data_config import data_url, data_path
+    from data_provider.instruction_follow.data_config import data_url, data_path
 
     # data download 
     download_data(data_url = data_url, data_path = data_path)

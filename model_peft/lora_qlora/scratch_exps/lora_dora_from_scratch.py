@@ -29,7 +29,7 @@ import torch
 import torch.nn as nn
 
 from exp.exp_basic import Exp_Basic
-from data_provider.finetune.lora.data_loader import get_dataloader
+from data_provider.lora.data_loader import get_dataloader
 from utils.model_memory import model_memory_size
 from layers.lora_dora import freeze_linear_layers, LinearWithLoRAMerged, LinearWithDoRAMerged
 

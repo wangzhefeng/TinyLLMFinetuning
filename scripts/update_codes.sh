@@ -1,7 +1,7 @@
 # !/bin/bash
 
 echo "--------------------------"
-echo "update TinyLLM codes..."
+echo "update TinyLLMFinetuning codes..."
 echo "--------------------------"
 git checkout main
 echo "Successfully checked out main."

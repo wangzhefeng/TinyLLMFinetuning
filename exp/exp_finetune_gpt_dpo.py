@@ -28,7 +28,7 @@ import torch.nn.functional as F
 from transformers import GPT2Model
 
 # data
-from data_provider.finetune.dpo import data_loader
+from data_provider.dpo import data_loader
 from data_provider import instruction_format
 # model
 from models.gpt import Model
