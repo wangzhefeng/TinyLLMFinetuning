@@ -35,11 +35,11 @@ from models.gpt import Model
 from utils.llm.gpt_generate import generate
 # tokenzier
 from layers.tokenizers.tokenization import choose_tokenizer, text_to_token_ids, token_ids_to_text
-from model_load.load_gpt2_pretrained_weights import (
+from model_pretrain.load_gpt2_pretrained_weights import (
     gpt2_model_configs, 
     gpt2_huggingface_models,
 )
-from model_load.openai_gpt2_weights_load_hf import load_weights_hf
+from model_pretrain.openai_gpt2_weights_load_hf import load_weights_hf
 from utils.llm.train_funcs import select_optimizer
 from utils.plot_losses import plot_losses
 # utils

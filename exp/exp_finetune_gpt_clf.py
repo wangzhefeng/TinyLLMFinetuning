@@ -21,7 +21,6 @@ if ROOT not in sys.path:
 import time
 import warnings
 
-
 import torch
 
 # data
@@ -31,8 +30,8 @@ from models.gpt import Model
 from layers.clf_head import finetune_model
 # other model
 from layers.tokenizers.tokenization import choose_tokenizer
-from model_load.load_gpt2_pretrained_weights import model_with_gpt2_weights, gpt2_model_configs
-from model_load.load_pretrained_weights import load_pretrained_model
+from model_pretrain.load_gpt2_pretrained_weights import model_with_gpt2_weights, gpt2_model_configs
+from model_pretrain.load_pretrained_weights import load_pretrained_model
 # training
 from utils.llm.calc_loss import calc_loss_batch, calc_loss_loader
 from utils.llm.calc_accuracy import calc_accuracy_loader, calc_final_accuracy

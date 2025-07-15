@@ -1,7 +1,7 @@
 <details><summary>目录</summary><p>
 
 - [Post-training](#post-training)
-    - [TODO](#todo)
+    - [Finetuning 模式](#finetuning-模式)
     - [SFT tools](#sft-tools)
 - [理解 LLM 微调](#理解-llm-微调)
     - [微调的实际应用](#微调的实际应用)
@@ -31,6 +31,7 @@
         - [模型保存](#模型保存)
 - [LLM 微调技术原理](#llm-微调技术原理)
 - [LLM 微调实战](#llm-微调实战)
+- [LoRA 和 QLoRA](#lora-和-qlora)
 </p></details><p></p>
 
 # Post-training
@@ -46,7 +47,7 @@
 * Knowledge distillation
 * Synthetic data
 
-## TODO
+## Finetuning 模式
 
 * SFT Only
 * SFT + RLHF
@@ -55,9 +56,8 @@
 ## SFT tools
 
 * HuggingFace `trl`
-* `unsloth`
-
-
+* Unsloth `unsloth`
+* Lit GPT `lightning`
 
 # 理解 LLM 微调
 
@@ -355,13 +355,18 @@
 7. [Guide to fine-tuning LLMs using PEFT and LoRa techniques](https://www.mercity.ai/blog-post/fine-tuning-llms-using-peft-and-lora)
 8. [In-depth guide to fine-tuning LLMs with LoRA and QLoRA](https://www.mercity.ai/blog-post/guide-to-fine-tuning-llms-with-lora-and-qlora)
 
-
-
-
 # LLM 微调实战
 
 > 模型参数高效微调技术实战
 
 1. [PEFT 概述](https://zhuanlan.zhihu.com/p/651744834)
-2. []()
 
+# LoRA 和 QLoRA
+
+* [Parameter-Efficient LLM Finetuning With Low-Rank Adaptation (LoRA)](https://lightning.ai/pages/community/tutorial/lora-llm/)
+* [Finetuning LLMs with LoRA and QLoRA: Insights from Hundreds of Experiments](https://lightning.ai/pages/community/lora-insights/)
+* [Practical Tips for Finetuning LLMs Using LoRA (Low-Rank Adaptation)](https://magazine.sebastianraschka.com/p/practical-tips-for-finetuning-llms)
+* [Improving LoRA: Implementing Weight-Decomposed Low-Rank Adaptation (DoRA) from Scratch](https://magazine.sebastianraschka.com/p/lora-and-dora-from-scratch)
+* [rasbt/LLM-finetuning-scripts](https://github.com/rasbt/LLM-finetuning-scripts/tree/main)
+* [rasbt/dora-from-scratch](https://github.com/rasbt/dora-from-scratch)
+* [DoRA](https://github.com/NVlabs/DoRA)
