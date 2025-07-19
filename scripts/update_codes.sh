@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 
 # 运行方式：
 # 仅 pull: bash scripts/update_codes.sh pull
