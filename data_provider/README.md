@@ -3,6 +3,7 @@
 - [数据](#数据)
     - [常用数据](#常用数据)
     - [数据格式](#数据格式)
+    - [数据预处理](#数据预处理)
 </p></details><p></p>
 
 # 数据
@@ -15,6 +16,12 @@
 * 使用上述方法的组合，如：
     - [Orca](https://huggingface.co/datasets/Open-Orca/OpenOrca)
     - [Orca: Progressive Learning from Complex Explanation Traces of GPT-4](https://arxiv.org/abs/2306.**02707**)
+
+数据集合：
+
+* [LLM Datasets](https://github.com/mlabonne/llm-datasets)
+* [大语言模型高质量数据集汇总](https://github.com/ninehills/blog/issues/129)
+* [Hugging Face datasets](https://huggingface.co/datasets)
 
 ## 数据格式
 
@@ -37,3 +44,7 @@
 {"prompt": "<prompt text>", "completion": "<ideal generated text>"}
 {"prompt": "<prompt text>", "completion": "<ideal generated text>"}
 ```
+
+## 数据预处理
+
+* [Distlabel](https://distilabel.argilla.io/latest/)

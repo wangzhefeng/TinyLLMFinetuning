@@ -35,7 +35,9 @@ elif [ $platform == "MSYS_NT-10.0-26100" ]; then
         bitsandbytes \
         trl \
         peft \
-
+        lighteval \
+        hf-transfer
+    
     # Install peft & trl from github
     # uv pip install git+https://github.com/huggingface/trl@a3c5b7178ac4f65569975efadc97db2f3749c65e --upgrade
     # uv pip install git+https://github.com/huggingface/peft@4a1559582281fc3c9283892caea8ccef1d6f5a4f --upgrade

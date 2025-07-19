@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************
-# * File        : main.py
+# * File        : merge_adapte_weights.py
 # * Author      : Zhefeng Wang
 # * Email       : zfwang7@gmail.com
-# * Date        : 2025-07-17
-# * Version     : 1.0.071700
+# * Date        : 2025-07-20
+# * Version     : 1.0.072001
 # * Description : description
-# * Link        : https://www.philschmid.de/fine-tune-llms-in-2025
+# * Link        : link
 # * Requirement : 相关模块版本需求(例如: numpy >= 2.1.0)
 # ***************************************************
 
