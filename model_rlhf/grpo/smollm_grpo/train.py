@@ -21,18 +21,15 @@ from pathlib import Path
 ROOT = str(Path.cwd())
 if ROOT not in sys.path:
     sys.path.append(ROOT)
-
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 os.environ["SM_FRAMEWORK"] = "tf.keras"
 
-import torch
 import wandb
-from datasets import load_dataset
-from peft import LoraConfig, get_peft_model
-from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers import pipeline
 from trl import GRPOConfig, GRPOTrainer
 
+from models import tokenizer, model
+from grpo import reward_len
+from data_provider import dataset
 from utils.log_util import logger
 
 # global variable
@@ -42,39 +39,6 @@ LOGGING_LABEL = Path(__file__).name[:-3]
 # Log to weights & biases
 wandb.login()
 
-# dataset
-dataset = load_dataset("mlabonne/smoltldr", cache_dir="./dataset/grpo/")
-logger.info(f"dataset: \n{dataset}")
-
-# model
-model_id = "HuggingFaceTB/SmolLM-135M-Instruct"
-model = AutoModelForCausalLM.from_pretrained(
-    model_id,
-    torch_dtype = "auto",
-    device_map = "auto",
-    attn_implementation = "flash_attention_2",
-    cache_dir="./downloaded_models/"
-)
-tokenizer = AutoTokenizer.from_pretrained(model_id)
-
-# LoRA
-lora_config =LoraConfig(
-    task_type = "CAUSAL_LM",
-    r = 16,
-    lora_alpha = 32,
-    target_modules = "all-linear",
-)
-model = get_peft_model(model, lora_config)
-logger.info(f"model trainable parameters: {model.print_trainable_parameters()}")
-
-
-'''
-# reward function
-def reward_len(completions, **kwargs):
-    """
-    Reward function
-    """
-    return [-abs(50 - len(completion)) for completion in completions]
 
 # training arguments
 training_args = GRPOConfig(
@@ -144,7 +108,7 @@ generate_kwargs = {
 }
 generated_text = generator(messages, generate_kwargs = generate_kwargs)
 logger.info(f"generated text: {generated_text}")
-'''
+
 
 
 

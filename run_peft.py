@@ -12,17 +12,14 @@
 # ***************************************************
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
 if ROOT not in sys.path:
     sys.path.append(ROOT)
 
-
-from peft import LoraConfig, TaskType
 from transformers import AutoModelForSeq2SeqLM
-from peft import get_peft_model
+from peft import LoraConfig, TaskType, get_peft_model
 
 # global variable
 LOGGING_LABEL = Path(__file__).name[:-3]
