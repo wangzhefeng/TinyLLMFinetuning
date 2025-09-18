@@ -27,8 +27,8 @@ import torch
 from utils.args_tools import DotDict
 from utils.device import device_setting
 from models.llama3_8B import Model
-from model_load.model_cfgs import LLAMA3_CONFIG_8B
-from model_load.meta_llama3_weights_load_hf import load_weights_into_llama
+from model_pretrain.model_cfgs import LLAMA3_CONFIG_8B
+from model_pretrain.meta_llama3_weights_load_hf import load_weights_into_llama
 
 # global variable
 LOGGING_LABEL = Path(__file__).name[:-3]
@@ -54,7 +54,7 @@ def model_with_llama3_weights(weights):
 
 # 测试代码 main 函数
 def main():
-    from model_load.meta_llama3_weights_load_hf import (
+    from model_pretrain.meta_llama3_weights_load_hf import (
         download_llama3_model, 
         download_llama3_instruct_model
     )

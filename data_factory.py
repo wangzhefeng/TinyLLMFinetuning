@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************
-# * File        : main.py
+# * File        : data_factory.py
 # * Author      : Zhefeng Wang
 # * Email       : zfwang7@gmail.com
-# * Date        : 2025-07-02
-# * Version     : 1.0.070217
+# * Date        : 2025-07-19
+# * Version     : 1.0.071921
 # * Description : description
 # * Link        : link
 # * Requirement : 相关模块版本需求(例如: numpy >= 2.1.0)
@@ -23,22 +23,24 @@ if ROOT not in sys.path:
 import warnings
 warnings.filterwarnings("ignore")
 
-from peft import (
-    get_peft_config, 
-    get_peft_model, 
-    PromptTuningInit, 
-    PromptTuningConfig,
-    TaskType,
-    PeftType,
-)
-
 # global variable
 LOGGING_LABEL = Path(__file__).name[:-3]
 os.environ['LOG_NAME'] = LOGGING_LABEL
 from utils.log_util import logger
 
 
+# system message
+system_message = """"""
+system_message_schema = """{schema}"""
 
+def create_conversation(sample):
+    return {
+        "messages": [
+            {"role": "system", "content": system_message.format(schema=sample["context"])},
+            {"role": "user", "content": sample["question"]},
+            {"role": "assistant", "content": sample["answer"]}
+        ]
+    }
 
 
 

@@ -12,22 +12,20 @@
 # ***************************************************
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
 if ROOT not in sys.path:
     sys.path.append(ROOT)
 
-
 from transformers import GPT2Model
 
-from model_load.openai_gpt2_weights_load_hf import load_weights_hf
-from model_load.openai_gpt2_weights_load_hf_safetensors import (
+from model_pretrain.openai_gpt2_weights_load_hf import load_weights_hf
+from model_pretrain.openai_gpt2_weights_load_hf_safetensors import (
     download_and_load_gpt2_st, 
     load_weights_hf_safetensors,
 )
-from model_load.openai_gpt2_weights_load import (
+from model_pretrain.openai_gpt2_weights_load import (
     download_and_load_gpt2, 
     load_weights_download,
 )

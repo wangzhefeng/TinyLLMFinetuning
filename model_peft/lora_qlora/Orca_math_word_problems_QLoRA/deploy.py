@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************
-# * File        : main.py
+# * File        : deploy.py
 # * Author      : Zhefeng Wang
 # * Email       : zfwang7@gmail.com
-# * Date        : 2025-07-02
-# * Version     : 1.0.070217
+# * Date        : 2025-07-19
+# * Version     : 1.0.071918
 # * Description : description
 # * Link        : link
 # * Requirement : 相关模块版本需求(例如: numpy >= 2.1.0)
@@ -22,15 +22,6 @@ if ROOT not in sys.path:
     sys.path.append(ROOT)
 import warnings
 warnings.filterwarnings("ignore")
-
-from peft import (
-    get_peft_config, 
-    get_peft_model, 
-    PromptTuningInit, 
-    PromptTuningConfig,
-    TaskType,
-    PeftType,
-)
 
 # global variable
 LOGGING_LABEL = Path(__file__).name[:-3]

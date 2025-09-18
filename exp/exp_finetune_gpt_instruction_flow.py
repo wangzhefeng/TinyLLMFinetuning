@@ -38,8 +38,11 @@ from layers.tokenizers.tokenization import text_to_token_ids, token_ids_to_text
 from models.gpt import Model
 from utils.llm.gpt_generate import generate
 # other model
-from model_load.load_gpt2_pretrained_weights import model_with_gpt2_weights, gpt2_model_configs
-from model_load.load_pretrained_weights import load_pretrained_model
+from model_pretrain.load_gpt2_pretrained_weights import (
+    model_with_gpt2_weights, 
+    gpt2_model_configs
+)
+from model_pretrain.load_pretrained_weights import load_pretrained_model
 # model training
 from utils.llm.calc_loss import calc_loss_batch, calc_loss_loader
 from utils.llm.train_funcs import select_optimizer

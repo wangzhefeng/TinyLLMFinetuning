@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************
-# * File        : hf_finetuning.py
+# * File        : main.py
 # * Author      : Zhefeng Wang
 # * Email       : zfwang7@gmail.com
-# * Date        : 2025-07-08
-# * Version     : 1.0.070816
+# * Date        : 2025-07-17
+# * Version     : 1.0.071700
 # * Description : description
-# * Link        : link
+# * Link        : https://huggingface.co/papers/2406.06623
 # * Requirement : 相关模块版本需求(例如: numpy >= 2.1.0)
 # ***************************************************
 

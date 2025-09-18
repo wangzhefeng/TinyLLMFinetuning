@@ -25,7 +25,6 @@ import json
 import urllib.request
 from tqdm import tqdm
 
-
 import numpy as np
 import torch
 import tensorflow as tf

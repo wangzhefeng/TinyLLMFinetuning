@@ -21,7 +21,6 @@ if ROOT not in sys.path:
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 import urllib.request
 
-
 import torch
 from safetensors.torch import load_file
 

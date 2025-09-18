@@ -14,7 +14,6 @@
 __all__ = []
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
@@ -56,6 +55,10 @@ def load_csv_data(data_path: str):
     df = pd.read_csv(data_path, sep="\t", header=None, names=["Label", "Text"])
 
     return df
+
+
+def load_jsonl_data():
+    pass
 
 
 

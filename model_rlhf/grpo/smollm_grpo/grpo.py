@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************
-# * File        : main.py
+# * File        : grpo.py
 # * Author      : Zhefeng Wang
 # * Email       : zfwang7@gmail.com
-# * Date        : 2025-07-02
-# * Version     : 1.0.070217
+# * Date        : 2025-07-20
+# * Version     : 1.0.072018
 # * Description : description
 # * Link        : link
 # * Requirement : 相关模块版本需求(例如: numpy >= 2.1.0)
@@ -23,22 +23,17 @@ if ROOT not in sys.path:
 import warnings
 warnings.filterwarnings("ignore")
 
-from peft import (
-    get_peft_config, 
-    get_peft_model, 
-    PromptTuningInit, 
-    PromptTuningConfig,
-    TaskType,
-    PeftType,
-)
-
 # global variable
 LOGGING_LABEL = Path(__file__).name[:-3]
 os.environ['LOG_NAME'] = LOGGING_LABEL
 from utils.log_util import logger
 
 
-
+def reward_len(completions, **kwargs):
+    """
+    Reward function
+    """
+    return [-abs(50 - len(completion)) for completion in completions]
 
 
 
