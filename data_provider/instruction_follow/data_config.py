@@ -14,13 +14,11 @@
 __all__ = []
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
 if ROOT not in sys.path:
     sys.path.append(ROOT)
-
 
 from utils.log_util import logger
 
@@ -36,12 +34,12 @@ data_url = (
 logger.info(f"data_url: {data_url}")
 
 # data dir
-data_dir = "dataset/finetune/"
-os.makedirs(data_dir, exist_ok=True)
+data_dir = Path("./dataset/finetune/")
+data_dir.mkdir(parents=True, exist_ok=True)
 logger.info(f"data_dir: {data_dir}")
 
 # instruction data path
-data_path = Path(data_dir).joinpath(data_url.split("/")[-1])
+data_path = data_dir.joinpath(data_url.split("/")[-1])
 logger.info(f"data_path: {data_path}")
 
 
@@ -49,7 +47,14 @@ logger.info(f"data_path: {data_path}")
 
 # 测试代码 main 函数
 def main():
-    pass
+    from utils.llm.load_save_data import load_local_data, load_json_data
+
+    # data load
+    data = load_local_data(url=data_url, data_path=data_dir)
+    data = load_json_data(data_path = data_path)
+    from pprint import pprint
+    pprint(data[0])
+    logger.info(f"data[0]: \n{data[0]}")
 
 if __name__ == "__main__":
     main()

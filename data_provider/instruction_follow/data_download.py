@@ -12,7 +12,6 @@
 # ***************************************************
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
@@ -31,7 +30,6 @@ def download_data(data_url, data_path):
     """
     数据下载
     """
-    # data download
     if not Path(data_path).exists():
         with urllib.request.urlopen(data_url) as response:
             text_data = response.read().decode("utf-8")
@@ -43,7 +41,7 @@ def download_data(data_url, data_path):
 
 # 测试代码 main 函数
 def main(): 
-    from data_provider.load_save_data import load_json_data
+    from utils.llm.load_save_data import load_json_data
     from data_provider.instruction_follow.data_config import data_url, data_path
 
     # data download 

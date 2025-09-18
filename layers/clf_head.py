@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************
-# * File        : model_finetune_classification.py
+# * File        : clf_head.py
 # * Author      : Zhefeng Wang
 # * Email       : zfwang7@gmail.com
 # * Date        : 2025-03-04
@@ -12,7 +12,6 @@
 # ***************************************************
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
@@ -34,22 +33,20 @@ def finetune_model(model, emb_dim: int, num_classes: int, finetune_method: str):
     """
     # model architecture before finetune
     logger.info(f"model architecture before finetune: \n{model}") 
-
     # model params numbers before freeze
     total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     logger.info(f"Total trainable parameters before freeze: {total_params}")
+    
     # freeze model(make all layers non-trainable)
     for param in model.parameters():
         param.requires_grad = False
+    
     # model params numbers after freeze
     total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     logger.info(f"Total trainable parameters after freeze: {total_params}")
 
     # replace output layer
-    model.out_head = nn.Linear(
-        in_features = emb_dim, 
-        out_features = num_classes
-    )
+    model.out_head = nn.Linear(in_features = emb_dim, out_features = num_classes)
     
     # replace linear with LinearWithLoRA
     if finetune_method == "lora":

@@ -14,7 +14,6 @@
 __all__ = []
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
@@ -23,8 +22,8 @@ if ROOT not in sys.path:
 
 from tqdm import tqdm
 
-from data_provider.load_save_data import load_json_data, save_json_data
-from model_inference.inference_utils.openai_api import create_client, run_chatgpt
+from utils.llm.load_save_data import load_json_data, save_json_data
+from utils.llm.inference_utils.openai_api import create_client, run_chatgpt
 
 # global variable
 LOGGING_LABEL = Path(__file__).name[:-3]

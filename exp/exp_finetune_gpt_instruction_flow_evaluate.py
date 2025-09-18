@@ -14,15 +14,13 @@
 __all__ = []
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
 if ROOT not in sys.path:
     sys.path.append(ROOT)
 
-
-from data_provider.load_save_data import load_json_data
+from utils.llm.load_save_data import load_json_data
 from model_evaluate.ollama_evaluate import generate_model_scores
 from utils.log_util import logger
 

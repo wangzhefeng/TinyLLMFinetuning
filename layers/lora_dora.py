@@ -178,7 +178,7 @@ class LinearWithDoRAMerged(nn.Module):
         return output
 
 
-def replace_linear_with_lora(model, rank, alpha):
+def replace_linear_with_lora(model, rank: int=16, alpha: int=16):
     """
     将模型中的所有 Linear 层替换为新的 LinearWithLoRA 层
     """

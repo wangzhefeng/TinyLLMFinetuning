@@ -12,17 +12,25 @@
 # ***************************************************
 
 # python libraries
+import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
 if ROOT not in sys.path:
     sys.path.append(ROOT)
 
-from transformers import AutoModelForSeq2SeqLM
-from peft import LoraConfig, TaskType, get_peft_model
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+from peft import (
+    LoraConfig, TaskType, get_peft_model,
+    AutoPeftModelForCausalLM, AutoPeftModel
+)
+
+from utils.device import device_setting
 
 # global variable
 LOGGING_LABEL = Path(__file__).name[:-3]
+os.environ['LOG_NAME'] = LOGGING_LABEL
+from utils.log_util import logger
 
 
 # ------------------------------
@@ -35,12 +43,10 @@ peft_config = LoraConfig(
     lora_alpha=32, 
     lora_dropout=0.1
 )
-
 # ------------------------------
 # base model
 # ------------------------------
 model = AutoModelForSeq2SeqLM.from_pretrained("bigscience/mt0-large")
-
 # ------------------------------
 # peft model 
 # ------------------------------
@@ -71,7 +77,6 @@ trainer = Trainer(
     data_collator=data_collator,
     compute_metrics=compute_metrics,
 )
-
 trainer.train()
 
 # ------------------------------
@@ -80,35 +85,33 @@ trainer.train()
 # save model to local
 model.save_pretrained("output_dir")
 
-
 # save model to huggingface hub
 from huggingface_hub import notebook_login
-
 notebook_login()
 model.push_to_hub("your-name/bigscience/mt0-large-lora")
 
 # ------------------------------
 # inference
 # ------------------------------
-from peft import AutoPeftModelForCausalLM
-from transformers import AutoTokenizer
-import torch
-
-model = AutoPeftModelForCausalLM.from_pretrained("ybelkada/opt-350m-lora")
+# device
+device = device_setting(verbose=True)
+# tokenizer
 tokenizer = AutoTokenizer.from_pretrained("facebook/opt-350m")
-
+# model
+model = AutoPeftModelForCausalLM.from_pretrained("ybelkada/opt-350m-lora")
 model = model.to("cuda")
 model.eval()
+# input
 inputs = tokenizer("Preheat the oven to 350 degrees and place the cookie dough", return_tensors="pt")
-outputs = model.generate(input_ids=inputs["input_ids"].to("cuda"), max_new_tokens=50)
-print(tokenizer.batch_decode(outputs.detach().cpu().numpy(), skip_special_tokens=True)[0])
+# inference
+outputs = model.generate(
+    input_ids=inputs["input_ids"].to("cuda"), 
+    max_new_tokens=50
+)
+logger.info(tokenizer.batch_decode(outputs.detach().cpu().numpy(), skip_special_tokens=True)[0])
 
 # or
-from peft import AutoPeftModel
-
 model = AutoPeftModel.from_pretrained("smangrul/openai-whisper-large-v2-LORA-colab")
-
-
 
 
 

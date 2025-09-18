@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************
-# * File        : data_preprocessing.py
+# * File        : data_process.py
 # * Author      : Zhefeng Wang
 # * Email       : zfwang7@gmail.com
 # * Date        : 2025-01-29
@@ -14,13 +14,11 @@
 __all__ = []
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
 if ROOT not in sys.path:
     sys.path.append(ROOT)
-
 
 import pandas as pd
 
@@ -86,7 +84,7 @@ def data_to_csv(data_dir, train_df, valid_df, test_df):
 # 测试代码 main 函数
 def main():
     from data_provider.text_clf.data_config import data_dir, tsv_file_path
-    from data_provider.load_save_data import load_csv_data
+    from utils.llm.load_save_data import load_csv_data
 
     # data load
     df = load_csv_data(data_file_path = tsv_file_path)

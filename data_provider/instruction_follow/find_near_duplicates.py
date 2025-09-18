@@ -12,20 +12,18 @@
 # ***************************************************
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
 if ROOT not in sys.path:
     sys.path.append(ROOT)
-
 import re
 import argparse
 
-from data_provider.load_save_data import load_json_data, save_json_data
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
+from utils.llm.load_save_data import load_json_data, save_json_data
 from utils.log_util import logger
 
 # global variable

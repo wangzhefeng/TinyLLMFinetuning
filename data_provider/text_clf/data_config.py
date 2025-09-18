@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # ***************************************************
-# * File        : config.py
+# * File        : data_config.py
 # * Author      : Zhefeng Wang
 # * Email       : zfwang7@gmail.com
 # * Date        : 2025-03-05
@@ -12,13 +12,11 @@
 # ***************************************************
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
 if ROOT not in sys.path:
     sys.path.append(ROOT)
-
 
 from utils.log_util import logger
 
@@ -32,7 +30,7 @@ logger.info(f"zip_path: {zip_data_path}")
 
 # data dir
 data_dir = Path("dataset/finetune/sms_spam_collection")
-os.makedirs(data_dir, exist_ok=True)
+data_dir.mkdir(parents=True, exist_ok=True)
 logger.info(f"data_dir: {data_dir}")
 
 # data file path

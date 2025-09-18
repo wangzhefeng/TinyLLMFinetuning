@@ -38,8 +38,8 @@ from transformers import (
 )
 from transformers.trainer_utils import get_last_checkpoint
 from transformers.utils import is_liger_kernel_available
-# if is_liger_kernel_available():
-    # from liger_kernel.transformers import AutoLigerKernelForCausalLM
+if is_liger_kernel_available():
+    from liger_kernel.transformers import AutoLigerKernelForCausalLM
 # from distutils.util import strtobool
 from trl import (
     TrlParser, 
@@ -51,9 +51,7 @@ from trl import (
 from datasets import load_dataset
 from peft import AutoPeftModelForCausalLM
 
-# ------------------------------
-# Setup logging
-# ------------------------------
+# global variable
 LOGGING_LABEL = Path(__file__).name[:-3]
 os.environ['LOG_NAME'] = LOGGING_LABEL
 from utils.log_util import logger

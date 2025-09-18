@@ -46,7 +46,7 @@ fi
 echo "--------------------------"
 echo "update utils codes..."
 echo "--------------------------"
-cd utils
+cd ../../utils
 
 
 if [ $1 == "push" ]; then

@@ -14,13 +14,11 @@
 __all__ = []
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
 if ROOT not in sys.path:
     sys.path.append(ROOT)
-
 
 # global variable
 LOGGING_LABEL = Path(__file__).name[:-3]

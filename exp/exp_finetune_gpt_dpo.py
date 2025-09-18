@@ -22,7 +22,6 @@ import re
 import time
 from typing import Dict
 
-
 import torch
 import torch.nn.functional as F
 from transformers import GPT2Model
@@ -32,7 +31,7 @@ from data_provider.dpo import data_loader
 from data_provider import instruction_format
 # model
 from models.gpt import Model
-from utils.llm.gpt_generate import generate
+from layers.inference import generate
 # tokenzier
 from layers.tokenizers.tokenization import choose_tokenizer, text_to_token_ids, token_ids_to_text
 from model_pretrain.load_gpt2_pretrained_weights import (
@@ -40,7 +39,7 @@ from model_pretrain.load_gpt2_pretrained_weights import (
     gpt2_huggingface_models,
 )
 from model_pretrain.openai_gpt2_weights_load_hf import load_weights_hf
-from utils.llm.train_funcs import select_optimizer
+from utils.llm.early_stopping import select_optimizer
 from utils.plot_losses import plot_losses
 # utils
 from utils.device import device_setting

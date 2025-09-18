@@ -12,19 +12,17 @@
 # ***************************************************
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
 if ROOT not in sys.path:
     sys.path.append(ROOT)
-
 from functools import partial
 
 import torch
 from torch.utils.data import Dataset, DataLoader
 
-from data_provider.load_save_data import load_json_data
+from utils.llm.load_save_data import load_json_data
 from data_provider import instruction_format
 from utils.log_util import logger
 

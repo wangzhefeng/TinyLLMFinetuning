@@ -39,10 +39,9 @@ def format_input_alpaca(entry):
     return instruction_text + input_text #+ response_text
 
 
-# TODO
 def format_input_phi3(entry):
     """
-    Phi-3 paper:https://arxiv.org/abs/2404.14219
+    Phi-3: https://arxiv.org/abs/2404.14219
     """
     instruction_text = f"<|user|>\n{entry['instruction']}"
     input_text = f": '{entry['input']}'"
@@ -56,12 +55,15 @@ def format_input_phi3(entry):
 # 测试代码 main 函数
 def main():
     from data_provider.instruction_follow import data_config
-    from data_provider.load_save_data import load_json_data
+    from utils.llm.load_save_data import load_json_data
     from utils.log_util import logger
 
     # data load
     data = load_json_data(data_path = data_config.data_path)
-
+    logger.info(f"data[0]: \n{data[0]}")
+    # ------------------------------
+    # Alpaca
+    # ------------------------------
     # prompt format
     formated_entry = format_input_alpaca(data[0])
     logger.info(f"format instruction entry: \n{formated_entry}")
@@ -73,7 +75,9 @@ def main():
     # prompt format
     formated_entry = format_input_alpaca(data[999])
     logger.info(f"format instruction entry: \n{formated_entry}")
-
+    # ------------------------------
+    # Phi-3
+    # ------------------------------
     # prompt format
     formated_entry = format_input_phi3(data[50])
     logger.info(f"format instruction entry: \n{formated_entry}")

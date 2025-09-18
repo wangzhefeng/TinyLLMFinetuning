@@ -12,19 +12,18 @@
 # ***************************************************
 
 # python libraries
-import os
 import sys
 from pathlib import Path
 ROOT = str(Path.cwd())
 if ROOT not in sys.path:
     sys.path.append(ROOT)
 
-
 from transformers import AutoModelForSeq2SeqLM
 from peft import get_peft_config, get_peft_model, LoraConfig, TaskType
 
 # global variable
 LOGGING_LABEL = Path(__file__).name[:-3]
+
 
 # model path
 model_name_or_path = "bigscience/mt0-large"

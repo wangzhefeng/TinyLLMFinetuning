@@ -28,7 +28,7 @@ from transformers import TrainingArguments
 from trl import SFTTrainer
 from peft import LoraConfig, AutoPeftModelForCausalLM
 
-from data_factory import get_dataset
+from data_provider.data_factory import get_dataset
 from model import get_model_tokenizer
 from utils.online import hf_hub_login, wandb_login
 

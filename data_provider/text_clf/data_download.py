@@ -23,9 +23,6 @@ if ROOT not in sys.path:
 import urllib.request
 import zipfile
 
-
-import pandas as pd
-
 from utils.log_util import logger
 
 # global variable
@@ -73,7 +70,7 @@ def main():
         data_dir, 
         tsv_file_path
     )
-    from data_provider.load_save_data import load_csv_data
+    from utils.llm.load_save_data import load_csv_data
 
     # data download
     download_and_unzip_spam_data(tsv_file_path, zip_data_path, data_dir)

@@ -45,7 +45,7 @@ from model_pretrain.load_gpt2_pretrained_weights import (
 from model_pretrain.load_pretrained_weights import load_pretrained_model
 # model training
 from utils.llm.calc_loss import calc_loss_batch, calc_loss_loader
-from utils.llm.train_funcs import select_optimizer
+from utils.llm.early_stopping import select_optimizer
 from utils.plot_losses import plot_losses
 # tools
 from utils.device import device_setting

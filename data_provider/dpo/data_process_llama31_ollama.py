@@ -24,9 +24,9 @@ import random
 from tqdm import tqdm
 
 from data_provider.dpo import data_config
-from data_provider.load_save_data import load_json_data, save_json_data
+from utils.llm.load_save_data import load_json_data, save_json_data
 from data_provider.instruction_format import format_input_alpaca
-from model_inference.inference_utils.ollama_api import check_if_running, query_model
+from utils.llm.inference_utils.ollama_api import check_if_running, query_model
 from utils.log_util import logger
 
 # global variable

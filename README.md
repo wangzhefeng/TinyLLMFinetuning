@@ -1,5 +1,9 @@
 <details><summary>目录</summary><p>
 
+- [微调数据](#微调数据)
+    - [常用数据](#常用数据)
+    - [数据格式](#数据格式)
+    - [数据预处理](#数据预处理)
 - [Post-training](#post-training)
     - [Finetuning 模式](#finetuning-模式)
     - [SFT tools](#sft-tools)
@@ -32,7 +36,54 @@
 - [LLM 微调技术原理](#llm-微调技术原理)
 - [LLM 微调实战](#llm-微调实战)
 - [LoRA 和 QLoRA](#lora-和-qlora)
+- [Meta Llama model download](#meta-llama-model-download)
+    - [模型下载文档](#模型下载文档)
+    - [模型下载](#模型下载)
 </p></details><p></p>
+
+# 微调数据
+
+## 常用数据
+
+* 现有的开源数据集，[Spider](https://huggingface.co/datasets/xlangai/spider)
+* 使用 LLM 来创建合成数据集，[Alpaca](https://huggingface.co/datasets/tatsu-lab/alpaca)
+* 使用人工来创建数据集，如 [Dolly](https://huggingface.co/datasets/databricks/databricks-dolly-15k)
+* 使用上述方法的组合，如：
+    - [Orca](https://huggingface.co/datasets/Open-Orca/OpenOrca)
+    - [Orca: Progressive Learning from Complex Explanation Traces of GPT-4](https://arxiv.org/abs/2306.**02707**)
+
+数据集合：
+
+* [LLM Datasets](https://github.com/mlabonne/llm-datasets)
+* [大语言模型高质量数据集汇总](https://github.com/ninehills/blog/issues/129)
+* [Hugging Face datasets](https://huggingface.co/datasets)
+
+## 数据格式
+
+* 对话格式
+
+> conversational
+
+```json
+{"messages": [{"role": "system", "content": "You are..."}, {"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}]}
+{"messages": [{"role": "system", "content": "You are..."}, {"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}]}
+{"messages": [{"role": "system", "content": "You are..."}, {"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}]}
+```
+
+* 指令格式
+
+> instruction
+
+```json
+{"prompt": "<prompt text>", "completion": "<ideal generated text>"}
+{"prompt": "<prompt text>", "completion": "<ideal generated text>"}
+{"prompt": "<prompt text>", "completion": "<ideal generated text>"}
+```
+
+## 数据预处理
+
+* [Distlabel](https://distilabel.argilla.io/latest/)
+
 
 # Post-training
 
@@ -370,3 +421,34 @@
 * [rasbt/LLM-finetuning-scripts](https://github.com/rasbt/LLM-finetuning-scripts/tree/main)
 * [rasbt/dora-from-scratch](https://github.com/rasbt/dora-from-scratch)
 * [DoRA](https://github.com/NVlabs/DoRA)
+
+# Meta Llama model download
+
+## 模型下载文档
+
+* https://www.llama.com/llama-downloads/
+* https://www.llama.com/llama-downloads/
+
+## 模型下载
+
+1. 安装 llama-stack
+
+```bash
+$ uv pip install llama-stack
+$ uv pip install llama-stack -U
+```
+
+2. 查看模型列表
+
+```bash
+$ llama model list
+$ llama model list --show all
+```
+
+3. 下载模型
+
+```bash
+$ llama model download --source meta --model-id MODEL_ID
+```
+
+当脚本需要输入唯一的字定义 URL 时，粘贴 URL `.env/Llama_model_url`。
